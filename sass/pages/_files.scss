@@ -1,0 +1,79 @@
+.files-page {
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  @include bp(mobile) {
+    grid-template-columns: minmax(200px, 1fr);
+    margin-right: 10px;
+    margin-left: 10px;
+    gap: 10px;
+
+    // flex box
+    flex-direction: column;
+    align-items: normal;
+  }
+
+  .files-stats {
+    min-width: 260px;
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .size {
+      margin-left: auto;
+    }
+
+    .blue {
+      background-color: rgba($color: $blue-color, $alpha: 0.2)
+    }
+
+    .green {
+      background-color: rgba($color: $green-color, $alpha: 0.2)
+    }
+
+    .red {
+      background-color: rgba($color: $red-color, $alpha: 0.2)
+    }
+
+    .orange {
+      background-color: rgba($color: $orange-color, $alpha: 0.2)
+    }
+
+    .upload {
+      margin: 15px auto 0;
+      padding: 10px 15px;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $blue-color;
+
+        i {
+          animation: go-up 0.8s infinite;
+        }
+      }
+    }
+  }
+
+  .files-content {
+    flex: 1;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    img {
+      width: 64px;
+      height: 64px;
+      transition: 0.3s;
+    }
+
+    .file:hover img {
+      transform: rotate(5deg);
+    }
+
+    .info {
+      border-top: 1px solid #eee;
+    }
+  }
+}

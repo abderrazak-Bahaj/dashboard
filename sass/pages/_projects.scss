@@ -1,0 +1,103 @@
+.projects-page {
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+
+  @include bp(mobile) {
+    grid-template-columns: minmax(200px, 1fr);
+    margin-right: 10px;
+    margin-left: 10px;
+    gap: 10px;
+  }
+
+  .project {
+    .date {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+
+    h4 {
+      font-weight: normal;
+    }
+
+    .team {
+      position: relative;
+      min-height: 80px;
+
+      a {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        $i: 2;
+
+        @for $i from 2 through 5 {
+          &:nth-child(#{$i}) {
+            left: 25px * ($i - 1);
+          }
+        }
+
+        &:hover {
+          z-index: 1000;
+        }
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid white;
+      }
+    }
+
+    .do {
+      justify-content: flex-end;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+      margin-top: 15px;
+
+      @include bp(mobile) {
+        flex-direction: column;
+      }
+
+      span {
+        padding: 3px 8px;
+        margin-left: 5px;
+        width: fit-content;
+
+        @include bp(mobile) {
+          &:not(:last-child) {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+
+    .info {
+      border-top: 1px solid #eee;
+      margin-top: 15px;
+      padding-top: 15px;
+
+      @include bp(mobile) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .prog {
+    height: 8px;
+    width: 260px;
+    position: relative;
+    border-radius: 6px;
+
+    @include bp(mobile) {
+      margin-bottom: 15px;
+    }
+
+    span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      border-radius: 6px;
+    }
+  }
+}

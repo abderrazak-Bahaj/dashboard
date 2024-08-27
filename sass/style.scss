@@ -1,0 +1,15 @@
+@import "./global/variables";
+@import "./global/framework";
+@import './pages/index-and-main';
+@import './pages/settings';
+@import './pages/profile';
+@import './pages/projects';
+@import './pages/courses';
+@import './pages/friends';
+@import './pages/files';
+@import './pages/plans';
+
+.page {
+  background-color: #f1f5f9;
+  min-height: 200vh;
+}

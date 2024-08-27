@@ -1,0 +1,202 @@
+.settings-page {
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+
+  @include bp(mobile) {
+    grid-template-columns: minmax(100px, 1fr);
+    margin-right: 10px;
+    margin-left: 10px;
+    gap: 10px;
+  }
+
+  .close-message {
+    border: 1px solid #ccc;
+    resize: none;
+    min-height: 150px;
+  }
+
+  .email {
+    display: inline-flex;
+    width: calc(100% - 80px);
+  }
+
+  .sec-box {
+    padding-bottom: 15px;
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .button {
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $blue-alt-color;
+      }
+    }
+  }
+
+  .social-boxes {
+    i {
+      width: 40px;
+      height: 40px;
+      background-color: #f6f6f6;
+      border: 1px solid #ddd;
+      border-right: none;
+      border-radius: 6px 0 0 6px;
+      transition: 0.3s;
+    }
+
+    input {
+      height: 40px;
+      background-color: #f6f6f6;
+      border: 1px solid #ddd;
+      padding-left: 10px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    >div:focus-within i {
+      // هذه الخاصية تسمح لك بالتعديل على العنصر تاتب عند التركيز على العنصر الابن
+      color: black;
+    }
+  }
+
+  .widgets-control {
+    .control {
+      label {
+        padding-left: 30px;
+        cursor: pointer;
+        position: relative;
+
+        &:hover::before {
+          border-color: $blue-alt-color;
+        }
+
+        &:before,
+        &:after {
+
+          position: absolute;
+          left: 0;
+          top: 50%;
+          border-radius: 4px;
+          margin-top: -9px; // centering
+        }
+
+        &:before {
+          content: '';
+          width: 14px;
+          height: 14px;
+          border: 2px solid $grey-color;
+
+
+        }
+
+        &:after {
+          font-family: var(--fa-style-family-classic);
+          content: '\f00c';
+          font-weight: 900;
+          background-color: $blue-color;
+          color: white;
+          height: 18px;
+          width: 18px;
+          font-size: 12px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: 0.3s;
+          transform: scale(0) rotate(360deg);
+        }
+
+      }
+
+      input[type="checkbox"] {
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      input[type="checkbox"]:checked+label::after {
+        transform: scale(1);
+      }
+    }
+  }
+
+
+  .backup-control {
+
+    input[type="radio"] {
+      -webkit-appearance: none;
+      appearance: none;
+
+      &:checked+label::before {
+        border-color: $blue-color;
+      }
+
+      &:checked+label::after {
+        transform: scale(1);
+      }
+    }
+
+    .date {
+      label {
+        padding-left: 30px;
+        position: relative;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+          position: absolute;
+          content: "";
+          border-radius: 50%;
+        }
+
+        &::before {
+          top: 50%;
+          left: 0;
+          margin-top: -11px;
+          width: 18px;
+          height: 18px;
+          border: 2px solid $grey-color;
+        }
+
+        &::after {
+          left: 4.5px;
+          top: 4.5px;
+          width: 12px;
+          height: 12px;
+          background-color: $blue-color;
+          transition: 0.3s;
+          transform: scale(0);
+        }
+      }
+    }
+
+    .servers {
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+
+      @include bp(mobile) {
+        flex-wrap: wrap;
+      }
+
+      .server {
+        border: 2px solid #eee;
+        position: relative;
+
+        label {
+          cursor: pointer;
+        }
+      }
+
+      input[type="radio"]:checked+.server {
+        border-color: $blue-color;
+        color: $blue-color;
+      }
+    }
+  }
+
+  :disabled {
+    cursor: no-drop;
+    background-color: #f0f4f8;
+    color: #bbb;
+  }
+
+}

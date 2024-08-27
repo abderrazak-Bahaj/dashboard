@@ -1,0 +1,45 @@
+.courses-page {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  @include bp(mobile) {
+    grid-template-columns: minmax(200px, 1fr);
+    margin-right: 10px;
+    margin-left: 10px;
+    gap: 10px;
+  }
+
+  .course {
+    overflow: hidden;
+
+    .cover {
+      max-width: 100%;
+    }
+
+    .instructor {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      top: 20px;
+      left: 20px;
+      border: 2px solid white;
+    }
+
+    .description {
+      line-height: 1.6;
+    }
+
+    .info {
+      border-top: 1px solid #eee;
+      font-size: 13px;
+
+      .title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 13px;
+        top: -13px;
+      }
+    }
+  }
+}

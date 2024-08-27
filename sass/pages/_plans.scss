@@ -1,0 +1,70 @@
+.plans-page {
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+
+  @include bp(mobile) {
+    grid-template-columns: minmax(250px, 1fr);
+    margin-right: 10px;
+    margin-left: 10px;
+    gap: 10px;
+  }
+
+  .plan {
+    .top {
+      border: 3px solid white;
+      outline: 3px solid transparent;
+    }
+
+    &.green .top {
+      outline-color: $green-color;
+    }
+
+    &.blue .top {
+      outline-color: $blue-color;
+    }
+
+    &.orange .top {
+      outline-color: $orange-color;
+    }
+
+    .price {
+      position: relative;
+      font-size: 40px;
+      width: fit-content;
+      margin: auto;
+
+      span {
+        position: absolute;
+        left: -20px;
+        top: 0;
+        font-size: 25px;
+      }
+    }
+
+    ul li {
+      padding: 15px 0;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      border-bottom: 1px solid #eee;
+
+      .yes {
+        color: $green-color;
+      }
+
+      i:not(.yes, .help) {
+        color: $red-color;
+      }
+
+      i:first-child {
+        font-size: 18px;
+        margin-right: 5px;
+      }
+
+      .help {
+        color: $grey-color;
+        margin-left: auto;
+        cursor: pointer;
+      }
+    }
+  }
+}
